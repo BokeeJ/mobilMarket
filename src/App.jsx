@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Components/Navbar";
 import { VscUnmute } from "react-icons/vsc";
 import { FaVolumeMute } from "react-icons/fa";
+import Slider from "./Components/Slider";
 
 
 function App() {
@@ -21,8 +22,12 @@ function App() {
         </video>
         <div className="relative z-10">
           <Navbar />
+          <div className="flex justify-center">
+            <h1 className="text-black text-4xl">CHOOSE YOUR FAVOURITE</h1></div>
+          <Slider />
         </div>
       </div>
+
     </div>
   );
 }
