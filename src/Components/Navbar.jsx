@@ -10,7 +10,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-reac
 
 function Navbar() {
     return (
-        <div className='bg-[#20285d]'>
+        <div className='bg-[#20285d] w-full flex flex-col'>
             {/* miniNavbar */}
             <div className='flex justify-between w-full  text-white'>
                 <ul className='flex gap-4 m-5 lg:ml-16 '>
@@ -27,11 +27,11 @@ function Navbar() {
                 </ul>
             </div>
             {/* mainNavbar */}
-            <div>
-                <div className='flex items-center relative w-full'>
+            <div className='w-full'>
+                <div className='flex lg:flex-row flex-col  items-center relative w-full gap-5'>
                     <img src="/1.png" alt="Pc Shop" className='w-[200px] h-[80px] m-5 lg:ml-16 rounded-lg' />
-                    <div className='relative w-[800px]'>
-                        <input type="text" placeholder='Unesite pojam za pretragu...' className='w-[800px] h-[40px] rounded-full p-5' />
+                    <div className='relative lg:w-[800px] md: w-[500px] w-full'>
+                        <input type="text" placeholder='Unesite pojam za pretragu...' className='lg:w-[800px] w-full h-[40px] rounded-full lg:p-5' />
                         <IoIosSearch color='black' onClick={() => { console.log('CaoZeki') }} size={25} className='absolute right-0 mr-5 top-1/2 transform -translate-y-1/2' />
                     </div>
                     <div className=' items-center flex gap-6'>
@@ -53,6 +53,9 @@ function Navbar() {
                 </div>
 
             </div>
+
+
+
         </div>
     )
 }

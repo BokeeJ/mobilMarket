@@ -3,7 +3,26 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { ClerkProvider } from '@clerk/clerk-react'
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Proizvodi from './Components/Proizvodi.jsx'
+import HomePage from './Components/HomePage.jsx'
+
+const router = createBrowserRouter([{
+  path: '/',
+  element: <App />,
+  errorElement: <div>Error</div>,
+  children: [
+    {
+      path: '/',
+      element: <HomePage />,
+    },
+    {
+      path: '/proizvodi',
+      element: <Proizvodi />,
+    }
+  ]
+}
+]);
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -13,8 +32,13 @@ if (!PUBLISHABLE_KEY) {
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+
+
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
-      <App />
+
+      <RouterProvider router={router} />
+
     </ClerkProvider>
-  </React.StrictMode>,
+
+  </React.StrictMode>
 )
