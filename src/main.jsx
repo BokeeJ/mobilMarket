@@ -6,6 +6,7 @@ import { ClerkProvider } from '@clerk/clerk-react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Proizvodi from './Components/Proizvodi.jsx'
 import HomePage from './Components/HomePage.jsx'
+import SingleProduct from './Components/SingleProduct.jsx'
 
 const router = createBrowserRouter([{
   path: '/',
@@ -19,6 +20,14 @@ const router = createBrowserRouter([{
     {
       path: '/proizvodi',
       element: <Proizvodi />,
+    },
+    {
+      path: '/singleProizvodi',
+      element: <SingleProduct />,
+    },
+    {
+      path: '/proizvodi/:id',
+      element: <SingleProduct />,
     }
   ]
 }

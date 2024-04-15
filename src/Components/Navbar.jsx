@@ -34,7 +34,7 @@ function Navbar() {
                         <input type="text" placeholder='Unesite pojam za pretragu...' className='lg:w-[800px] w-full h-[40px] rounded-full lg:p-5' />
                         <IoIosSearch color='black' onClick={() => { console.log('CaoZeki') }} size={25} className='absolute right-0 mr-5 top-1/2 transform -translate-y-1/2' />
                     </div>
-                    <div className=' items-center flex gap-6'>
+                    <div className=' items-center flex gap-6 mr-10 m-5'>
                         <ul className='flex items-center gap-2 text-white ml-16'>
                             <FaRegUser size={25} />
                             <SignedOut>

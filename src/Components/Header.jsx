@@ -13,8 +13,8 @@ function Header() {
                 <h1 className='text-xl '>Pogodnosti</h1>
             </div>
             <div className='ml-20'>
-                <ul className='flex gap-5'>
-                    <li>Akcije</li>
+                <ul className='flex gap-5 lg:visible hidden lg:flex'>
+                    <Link to={'/singleProizvodi'}>Akcije</Link>
                     <li>Prodavnice</li>
                     <li>Poslovanje</li>
                     <li>Gaming</li>
