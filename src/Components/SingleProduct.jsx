@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import ProductsService from '../Services/productServices';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router';
+import { Rating } from '@mui/material';
 
 
 function SingleProduct() {
@@ -26,7 +27,7 @@ function SingleProduct() {
     return (
         <div className='p-5'>
             {singleProduct ? (
-                <div className='border-2 border-black w-[60%] mx-auto p-5 shadow-2xl'>
+                <div className='border-2 border-black w-[60%] mx-auto p-5 shadow-2xl rounded-md'>
                     <h2>
                         <strong>Name: </strong>{singleProduct.data.title}
                     </h2>
@@ -38,12 +39,14 @@ function SingleProduct() {
 
                     <p>
                         <strong>Category:</strong> {singleProduct.data.category}</p>
-                    <p><strong>Rating: </strong>{singleProduct.data.rating}</p>
+                    <p className='flex'><strong>Rating: </strong>{<Rating value={singleProduct.data.rating}
+                        readOnly
+                        name='read-only' />}</p>
                     <p><strong>Stock: </strong>{singleProduct.data.stock}</p>
                     <img className='w-[200px] h-[100px]' src={singleProduct.data.thumbnail} alt={singleProduct.data.title} />
                     <div></div>
 
-                    {console.log(singleProduct)}
+
                 </div>
             ) : (
                 <p>Loading...</p>
