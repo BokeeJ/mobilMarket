@@ -20,21 +20,17 @@ function Navbar() {
                     <li>Prodaja@gmail.com</li>
 
                 </ul>
-                <ul className='flex gap-3 m-5 lg:mr-16'>
-                    <CiHeart size={25} />
-                    <li> Lista zelja</li>
 
-                </ul>
             </div>
             {/* mainNavbar */}
             <div className='w-full'>
                 <div className='flex lg:flex-row flex-col  items-center relative w-full gap-5'>
-                    <img src="/1.png" alt="Pc Shop" className='w-[200px] h-[80px] m-5 lg:ml-16 rounded-lg' />
-                    <div className='relative lg:w-[800px] md: w-[500px] w-full'>
-                        <input type="text" placeholder='Unesite pojam za pretragu...' className='lg:w-[800px] w-full h-[40px] rounded-full lg:p-5' />
-                        <IoIosSearch color='black' onClick={() => { console.log('CaoZeki') }} size={25} className='absolute right-0 mr-5 top-1/2 transform -translate-y-1/2' />
+                    <img src="/1.webp" alt="Pc Shop" className='w-[200px] h-[80px] m-5 lg:ml-16 rounded-lg' />
+                    <div className='flex flex-row justify-center gap-2 lg:w-[800px] md: w-[500px] w-full items-center'>
+                        <input type="text" placeholder='Unesite pojam za pretragu...' className='lg:w-[800px] w-[300px] h-[40px] rounded-full lg:p-5' />
+                        <IoIosSearch color='white' onClick={() => { console.log('CaoZeki') }} size={25} />
                     </div>
-                    <div className=' items-center flex gap-6 mr-10 m-5'>
+                    <div className=' items-center flex gap-6 mr-10 m-5 justify-center'>
                         <ul className='flex items-center gap-2 text-white ml-16'>
                             <FaRegUser size={25} />
                             <SignedOut>
@@ -48,6 +44,11 @@ function Navbar() {
                         <ul className='flex items-center gap-2 text-white '>
                             <FaShoppingCart size={25} />
                             <li>0</li>
+                        </ul>
+                        <ul className='flex gap-2 items-center'>
+                            <CiHeart size={25} color='white' />
+                            <li className='text-white'> Lista zelja</li>
+
                         </ul>
                     </div>
                 </div>

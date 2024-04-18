@@ -9,7 +9,6 @@ import { IoGridOutline } from "react-icons/io5";
 
 function Proizvodi() {
     const [proizvodi, setProizvodi] = useState([]);
-    const [listView, setListView] = useState(false);
     const [gridView, setGridView] = useState(false)
 
 
@@ -28,24 +27,29 @@ function Proizvodi() {
 
 
     return (
-        <div>
-            <div className='flex mx-10 gap-10 text-xl'>
-                <button onClick={() => setListView(true)} className='flex items-center gap-2 font-robot'>List < GiHamburgerMenu /></button>
+        <div >
+            <div className='flex mx-10 gap-10 text-xl '>
+                <button onClick={() => setGridView(false)} className='flex items-center gap-2 font-robot'>List < GiHamburgerMenu /></button>
                 <button onClick={() => setGridView(true)} className='flex items-center gap-2 font-robot'>Grid <IoGridOutline /></button>
             </div>
 
-            <div className={listView ? ' flex-col w-[50%] h-full border-2 border-black gap-2 shadow-2xl m-5' : 'flex flex-wrap items-center justify-center w-[70%] h-full mx-auto gap-2 shadow-2xl m-5'} >
+            <div className={gridView ? 'flex flex-wrap m-2 items-center justify-center gap-5 m-4' : 'flex flex-col gap-2 w-full'} >
                 {proizvodi.map((product) => (
-                    <Link key={product.id} to={`/proizvodi/${product.id}`} className='w-[200px] h-[200px] border-black border-2 m-2 text-center rounded-lg truncate items-center' >
-                        <div className='w-[199px] h-[199px] rounded-lg absolute bg-black opacity-0 hover:opacity-40'></div>
-                        <img src={product.thumbnail} className={listView ? 'w-[200px] h-[200px] object-cover overhide truncate ' : 'w-full h-[100px] object-cover overhide truncate'} alt={product.name} />
-                        <h1 className='p-2'>{product.title}</h1>
-                        <hr className='w-[70%]  border-black mx-auto' />
-                        <p className='text-[#751f1f] p-5'>{product.price}$</p>
+                    <Link key={product.id} to={`/proizvodi/${product.id}`} className={gridView ? 'w-[200px] h-full p-2 text-center border-[#a1998e] border-2  text-center rounded-lg truncate items-center justify-center relative shadow-2xl transition-transform duration-300 ease-in-out transform hover:scale-105 rounded-md' : 'flex flex-row gap-2 text-center border border-[#a1998e] transition-transform duration-300 ease-in-out transform hover:scale-105 ml-5 rounded-md'} >
+                        <img src={product.thumbnail} className={gridView ? 'h-[200px] w-[200px] object-cover rounded-md' : 'h-[150px] w-[180px] rounded-md'} alt={product.name} />
+                        <div className={gridView ? 'w-[200px] h-[200px] rounded-lg absolute bg-black opacity-0 hover:opacity-40 ' : 'w-[180px] h-[150px] rounded-lg absolute bg-black opacity-0 hover:opacity-40 '}></div>
+                        <div className='flex-col'>
+                            <h3 className='mt-2'>{product.title}</h3>
+                            <hr className='w-[70%] m-2 border-black mx-auto' />
+                            <p className='text-[#ff3b3b] p-2'>{product.price}$</p>
+                        </div>
                     </Link>
-                ))}
+
+                ))
+                }
             </div >
-        </div>
+        </div >
+
     );
 }
 
